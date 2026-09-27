@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD'art | Mandiaye Diaw — Maison d'Art & Peintures Originales</title>
+  <meta name="description" content="Découvrez les peintures sur toile originales de la maison MD'art par Mandiaye Diaw. Scrollytelling immersif, exploration des matières et acquisition d'œuvres d'art contemporaines uniques." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body class="bg-noir text-creme overflow-x-hidden selection:bg-gold selection:text-noir">
+
+  <!-- Custom Cursor Glow -->
+  <div id="cursor-glow" class="cursor-glow pointer-events-none"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="preloader-logo-wrap">
+        <img src="/assets/logo_square.jpeg" alt="MD'art Logo" class="preloader-logo" />
+      </div>
+      <div class="preloader-bar-bg">
+        <div id="preloader-bar" class="preloader-bar"></div>
+      </div>
+      <p id="preloader-text" class="preloader-text">Révélation de l'Atelier... <span id="preloader-percent">0%</span></p>
+    </div>
+  </div>
+
+  <!-- Navigation Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="brand-link">
+        <img src="/assets/logo1.jpeg" alt="MD'art" class="brand-monogram" />
+        <span class="brand-name">MANDIAYE DIAW</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#experience" class="nav-item">L'Expérience</a>
+        <a href="#piece-maitresse" class="nav-item">Pièce Maîtresse</a>
+        <a href="#collection" class="nav-item">Collection</a>
+        <a href="#artiste" class="nav-item">L'Artiste</a>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btn-sound-toggle" class="btn-icon" title="Ambiance sonore" aria-label="Ambiance sonore">
+          <i data-lucide="volume-x"></i>
+        </button>
+        <a href="#collection" class="btn-gold-outline">
+          <span>Acquérir une Œuvre</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero-section">
+    <div class="hero-background-gradient"></div>
+    
+    <div class="hero-content">
+      <div class="hero-tag">
+        <span class="pulse-dot"></span>
+        <span>Édition Unique & Pièces Maîtresses 1/1</span>
+      </div>
+
+      <h1 class="hero-title">
+        L'ÂME DE LA TOILE.<br />
+        <span class="gold-gradient-text">L'ÉCLAT DU PIGMENT.</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        Plongez dans l'univers pictural de Mandiaye Diaw. Quand la puissance des symboles ancestraux rencontre la vibration moderne de la lumière et de l'or.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#experience" class="btn-gold-solid">
+          <span>Explorer l'Expérience Visuelle</span>
+          <i data-lucide="arrow-down"></i>
+        </a>
+        <button id="btn-hero-order" class="btn-dark-glass">
+          <i data-lucide="gem"></i>
+          <span>Acquérir la Pièce Maîtresse</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <span class="scroll-label">Scrollez pour entrer dans la toile</span>
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMMERSIVE VIDEO SCROLL CANVAS SECTION -->
+  <section id="experience" class="scrolly-section">
+    <div class="canvas-sticky-container">
+      <!-- High Performance Scrubbing Canvas -->
+      <canvas id="scrub-canvas" class="scrub-canvas"></canvas>
+
+      <!-- Dynamic Vignette & Lighting Overlay -->
+      <div class="canvas-overlay-vignette"></div>
+
+      <!-- Scrollytelling Floating Cards synced with camera movement -->
+      <div class="scrolly-stories-layer">
+        
+        <!-- Step 1: Macro Texture -->
+        <div class="story-step" data-step="1">
+          <div class="story-card glass-panel">
+            <span class="story-num">I. LA MATIÈRE</span>
+            <h3 class="story-title">Le Geste & L'Empâtement</h3>
+            <p class="story-desc">
+              Chaque coup de pinceau sculpte la toile. Pigments purs, reliefs généreux et teintes crépusculaires qui capturent l'intensité du feu et de la terre.
+            </p>
+            <div class="story-badge">Acrylique & Huile sur lin épais</div>
+          </div>
+        </div>
+
+        <!-- Step 2: The Symbols -->
+        <div class="story-step" data-step="2">
+          <div class="story-card glass-panel">
+            <span class="story-num">II. LA MÉMOIRE</span>
+            <h3 class="story-title">L'Écho des Symboles</h3>
+            <p class="story-desc">
+              Bordée d'idéogrammes traditionnels, l'œuvre devient un talisman vivant. Les signes racontent la royauté, l'eau nourricière, la bravoure et l'infini.
+            </p>
+            <div class="story-badge">Glyphes & Idéogrammes sacrés</div>
+          </div>
+        </div>
+
+        <!-- Step 3: The Warrior at Sunset -->
+        <div class="story-step" data-step="3">
+          <div class="story-card glass-panel">
+            <span class="story-num">III. LA SILHOUETTE</span>
+            <h3 class="story-title">Le Guerrier au Crépuscule</h3>
+            <p class="story-desc">
+              Drapé de lumière, le veilleur veille face à l'astre flamboyant. Une silhouette indomptable qui défie le temps et ancre l'œuvre dans la noblesse.
+            </p>
+            <div class="story-badge">Contraste Solaire & Fusain</div>
+          </div>
+        </div>
+
+        <!-- Step 4: Full Exhibition Room -->
+        <div class="story-step" data-step="4">
+          <div class="story-card glass-panel highlight-card">
+            <span class="story-num">IV. L'ŒUVRE RÉVÉLÉE</span>
+            <h3 class="story-title">« Le Guerrier au Crépuscule »</h3>
+            <div class="story-specs">
+              <div><span>Dimensions :</span> <strong>80 × 120 cm</strong></div>
+              <div><span>Support :</span> <strong>Toile tendue sur châssis bois</strong></div>
+              <div><span>Certificat :</span> <strong>Authenticité 1/1 Signée</strong></div>
+              <div><span>Statut :</span> <strong class="text-emerald">Disponible à l'achat</strong></div>
+            </div>
+            <div class="story-actions">
+              <button class="btn-gold-solid btn-open-purchase" data-painting-id="1">
+                <span>Acquérir cette pièce</span>
+                <i data-lucide="arrow-right"></i>
+              </button>
+              <button class="btn-dark-glass btn-open-room" data-painting="peinture.jpeg">
+                <i data-lucide="eye"></i>
+                <span>Voir en Salon</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Canvas interactive control HUD -->
+      <div class="canvas-hud">
+        <div class="hud-progress-wrap">
+          <div class="hud-progress-label">EXPLORATION DE L'ŒUVRE</div>
+          <div class="hud-progress-bar"><div id="canvas-progress" class="hud-progress-fill"></div></div>
+        </div>
+        <div class="hud-tools">
+          <button id="btn-trigger-zoom" class="hud-btn" title="Inspecter en Ultra HD">
+            <i data-lucide="zoom-in"></i>
+            <span>Zoom HD</span>
+          </button>
+          <button id="btn-trigger-room" class="hud-btn" title="Mettre en situation dans un salon">
+            <i data-lucide="maximize-2"></i>
+            <span>Mise en situation</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTWORK SPOTLIGHT / PIECE MAITRESSE DETAILS -->
+  <section id="piece-maitresse" class="section-details">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <span class="section-eyebrow">PIÈCE MAÎTRESSE DISPONIBLE</span>
+        <h2 class="section-title">Analyse & Caractéristiques de l'Œuvre</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="details-grid">
+        <!-- Left Column: High Res Image with zoom lens -->
+        <div class="artwork-preview-card">
+          <div class="artwork-frame">
+            <img id="detail-artwork-img" src="/assets/peinture.jpeg" alt="Le Guerrier au Crépuscule par Mandiaye Diaw" class="artwork-main-img" />
+            <div class="artwork-tag-original">ŒUVRE ORIGINALE UNIQUE</div>
+            <div class="artwork-interactive-badge">
+              <i data-lucide="sparkles"></i>
+              <span>Pigments & Or texturé</span>
+            </div>
+          </div>
+          
+          <div class="preview-actions">
+            <button class="btn-dark-glass flex-1 btn-open-room" data-painting="peinture.jpeg">
+              <i data-lucide="home"></i>
+              <span>Voir accroché dans un salon</span>
+            </button>
+            <button class="btn-dark-glass flex-1 btn-open-loupe">
+              <i data-lucide="search"></i>
+              <span>Inspecter la matière</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Column: Specs and Buyer Confidence -->
+        <div class="artwork-info-card glass-panel">
+          <div class="artist-signature-row">
+            <div class="artist-badge">
+              <img src="/assets/logo_square.jpeg" alt="MD'art - Mandiaye Diaw" />
+              <div>
+                <h4>Mandiaye Diaw</h4>
+                <p>Artiste Peintre Contemporain</p>
+              </div>
+            </div>
+            <div class="authenticity-stamp">
+              <i data-lucide="shield-check"></i>
+              <span>Certifié Authentique</span>
+            </div>
+          </div>
+
+          <h3 class="artwork-name">Le Guerrier au Crépuscule</h3>
+          <p class="artwork-quote">
+            « Le soleil ne s'éteint jamais vraiment : il recharge la force du gardien pour les combats de l'aube. »
+          </p>
+
+          <div class="specs-table">
+            <div class="spec-row">
+              <span class="spec-label">Technique</span>
+              <span class="spec-value">Acrylique, huile & pigments chauds sur toile</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Dimensions</span>
+              <span class="spec-value">80 cm × 120 cm (Châssis bois sur-mesure)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Finition</span>
+              <span class="spec-value">Vernis satiné anti-UV haut de gamme</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Bordure</span>
+              <span class="spec-value">Ornée d'idéogrammes peints à la main</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Tirage</span>
+              <span class="spec-value highlight-gold">Exemplaire 1/1 Unique au monde</span>
+            </div>
+          </div>
+
+          <!-- Purchase Pricing & Options -->
+          <div class="purchase-box">
+            <div class="price-row">
+              <div>
+                <span class="price-caption">Prix de l'œuvre originale</span>
+                <div class="price-tag">2 400 € <span class="tax-info">Livraison sécurisée incluse</span></div>
+              </div>
+              <span class="status-badge available">Disponible</span>
+            </div>
+
+            <div class="guarantee-list">
+              <div class="guarantee-item">
+                <i data-lucide="award"></i>
+                <span>Certificat d'authenticité papier numéroté et signé</span>
+              </div>
+              <div class="guarantee-item">
+                <i data-lucide="package-check"></i>
+                <span>Caisse en bois sur-mesure & assurance transport 100%</span>
+              </div>
+              <div class="guarantee-item">
+                <i data-lucide="refresh-cw"></i>
+                <span>Possibilité de paiement sécurisé en 3x ou 4x</span>
+              </div>
+            </div>
+
+            <div class="cta-purchase-stack">
+              <button class="btn-gold-solid w-full btn-open-purchase" data-painting-id="1">
+                <i data-lucide="shopping-bag"></i>
+                <span>Faire une proposition / Réserver l'œuvre</span>
+              </button>
+              <a href="https://wa.me/?text=Bonjour%20Mandiaye%20Diaw,%20je%20souhaite%20des%20renseignements%20pour%20acquérir%20la%20toile%20Le%20Guerrier%20au%20Crépuscule" target="_blank" rel="noopener" class="btn-whatsapp w-full">
+                <i data-lucide="message-circle"></i>
+                <span>Contacter l'artiste directement sur WhatsApp</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COLLECTION / GALERIE DE VENTE -->
+  <section id="collection" class="section-collection">
+    <div class="container">
+      <div class="section-header text-center">
+        <span class="section-eyebrow">CATALOGUE DES ŒUVRES</span>
+        <h2 class="section-title">La Collection Contemporaine</h2>
+        <p class="section-desc">
+          Chaque tableau est une fenêtre ouverte sur l'âme, une œuvre singulière qui ne sera jamais reproduite.
+        </p>
+        <div class="gold-divider"></div>
+      </div>
+
+      <div class="collection-grid">
+        
+        <!-- Artwork 1 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="/assets/peinture.jpeg" alt="Le Guerrier au Crépuscule" />
+            <div class="gallery-status available">Disponible</div>
+            <div class="gallery-overlay">
+              <button class="gallery-quick-view btn-open-room" data-painting="peinture.jpeg">
+                <i data-lucide="eye"></i>
+                <span>Voir en Salon</span>
+              </button>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-meta">
+              <span class="gallery-cat">Série Racines Solaire</span>
+              <span class="gallery-size">80 × 120 cm</span>
+            </div>
+            <h3 class="gallery-title">Le Guerrier au Crépuscule</h3>
+            <p class="gallery-sub">Acrylique, pigments purs et idéogrammes.</p>
+            <div class="gallery-bottom">
+              <div class="gallery-price">2 400 €</div>
+              <button class="btn-gold-sm btn-open-purchase" data-painting-id="1">Acquérir</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Artwork 2 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="/assets/peinture2.jpg" alt="Reine d'Or et d'Indigo" />
+            <div class="gallery-status available">Disponible</div>
+            <div class="gallery-overlay">
+              <button class="gallery-quick-view btn-open-room" data-painting="peinture2.jpg">
+                <i data-lucide="eye"></i>
+                <span>Voir en Salon</span>
+              </button>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-meta">
+              <span class="gallery-cat">Série Majesté</span>
+              <span class="gallery-size">75 × 100 cm</span>
+            </div>
+            <h3 class="gallery-title">Reine d'Or et d'Indigo</h3>
+            <p class="gallery-sub">Huile sur lin, parures feuille d'or & cobalt.</p>
+            <div class="gallery-bottom">
+              <div class="gallery-price">2 850 €</div>
+              <button class="btn-gold-sm btn-open-purchase" data-painting-id="2">Acquérir</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Artwork 3 -->
+        <div class="gallery-card">
+          <div class="gallery-img-wrapper">
+            <img src="/assets/peinture3.jpg" alt="La Danseuse du Feu Céleste" />
+            <div class="gallery-status reserved">Réservé</div>
+            <div class="gallery-overlay">
+              <button class="gallery-quick-view btn-open-room" data-painting="peinture3.jpg">
+                <i data-lucide="eye"></i>
+                <span>Voir en Salon</span>
+              </button>
+            </div>
+          </div>
+          <div class="gallery-info">
+            <div class="gallery-meta">
+              <span class="gallery-cat">Série Énergie & Transe</span>
+              <span class="gallery-size">90 × 130 cm</span>
+            </div>
+            <h3 class="gallery-title">La Danseuse du Feu Céleste</h3>
+            <p class="gallery-sub">Empâtement au couteau, flammes d'ambre.</p>
+            <div class="gallery-bottom">
+              <div class="gallery-price">3 100 €</div>
+              <button class="btn-dark-sm btn-open-purchase" data-painting-id="3">Offre d'Acquisition</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ARTIST BIOGRAPHY & VISION -->
+  <section id="artiste" class="section-artist">
+    <div class="container">
+      <div class="artist-grid">
+        <div class="artist-portrait-col">
+          <div class="artist-frame">
+            <img src="/assets/logo_square.jpeg" alt="MD'art - Mandiaye Diaw" class="artist-signature-img" />
+            <div class="artist-glow-circle"></div>
+          </div>
+        </div>
+        <div class="artist-content-col">
+          <span class="section-eyebrow">LE MAÎTRE DERRIÈRE LE PINCEAU</span>
+          <h2 class="artist-title">Mandiaye Diaw</h2>
+          <p class="artist-lead">
+            « Peindre, c'est convoquer le silence de la terre et la fureur de la lumière pour donner une voix à ce que les mots ne peuvent nommer. »
+          </p>
+          <div class="artist-bio-text">
+            <p>
+              Issu d'une profonde tradition d'expression graphique et inspiré par la puissance des mythes et des civilisations solaires, Mandiaye Diaw façonne des toiles d'un magnétisme brut. Ses toiles marient le fusain obscur, l'éclat tellurique des pigments ocres et le raffinement de l'or brossé.
+            </p>
+            <p>
+              Chaque œuvre est conçue comme un héritage intemporel, une présence vivante destinée à rayonner dans les résidences contemporaines les plus exigeantes et les collections d'art internationales.
+            </p>
+          </div>
+
+          <div class="artist-stats">
+            <div class="stat-item">
+              <span class="stat-num">100%</span>
+              <span class="stat-label">Œuvres Originales Uniques</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">1/1</span>
+              <span class="stat-label">Certificat Numéroté</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-num">Monde</span>
+              <span class="stat-label">Livraison Assurée</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="/assets/logo.jpeg" alt="MD'art - Mandiaye Diaw" class="footer-logo" />
+          <p class="footer-tagline">Maison d'Art Contemporain & Toiles Originales de Collection.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#hero">Accueil</a>
+          <a href="#experience">L'Expérience</a>
+          <a href="#piece-maitresse">Pièce Maîtresse</a>
+          <a href="#collection">Collection</a>
+          <a href="#artiste">L'Artiste</a>
+        </div>
+        <div class="footer-contact">
+          <h4>Ventes Privées & Contact</h4>
+          <p>Pour toute commande spéciale, vernissage privé ou demande d'expertise :</p>
+          <a href="mailto:contact@mandiayediaw-art.com" class="footer-email">contact@mandiayediaw-art.com</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Mandiaye Diaw. Tous droits d'auteur réservés. Œuvres certifiées.</p>
+        <div class="footer-meta">
+          <span>Paris • Dakar • Collection Internationale</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL: VIEW IN ROOM (Mise en Situation dans un salon luxueux) -->
+  <div id="modal-room" class="modal-backdrop">
+    <div class="modal-room-container">
+      <button class="modal-close" id="btn-close-room" aria-label="Fermer la vue en salon">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="room-viewport">
+        <!-- Room background photograph -->
+        <img src="/assets/room_interior.jpg" alt="Intérieur de salon d'art luxueux" class="room-bg-img" />
+        
+        <!-- The Painting Hanging On The Wall with Realistic Drop Shadow -->
+        <div id="room-canvas-frame" class="room-canvas-frame">
+          <img id="room-artwork-target" src="/assets/peinture.jpeg" alt="Tableau en situation" class="room-artwork-img" />
+          <div class="room-canvas-glare"></div>
+        </div>
+
+        <div class="room-controls">
+          <div class="room-info-badge">
+            <i data-lucide="sliders"></i>
+            <span>Simulation d'accrochage à échelle réelle (80 × 120 cm)</span>
+          </div>
+          <div class="room-switches">
+            <button class="room-thumb-btn active" data-img="/assets/peinture.jpeg">Guerrier au Crépuscule</button>
+            <button class="room-thumb-btn" data-img="/assets/peinture2.jpg">Reine d'Or</button>
+            <button class="room-thumb-btn" data-img="/assets/peinture3.jpg">Danseuse de Feu</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: HIGH RES LOUPE / MACRO ZOOM -->
+  <div id="modal-loupe" class="modal-backdrop">
+    <div class="modal-loupe-container">
+      <button class="modal-close" id="btn-close-loupe" aria-label="Fermer le zoom">
+        <i data-lucide="x"></i>
+      </button>
+      <div class="loupe-header">
+        <h3>Inspection Macro Haute Définition</h3>
+        <p>Glissez votre curseur sur la toile pour inspecter le relief des pigments et les détails de la matière.</p>
+      </div>
+      <div id="loupe-stage" class="loupe-stage">
+        <img id="loupe-source-img" src="/assets/peinture.jpeg" alt="Inspection HD" class="loupe-main-img" />
+        <div id="loupe-lens" class="loupe-lens"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PURCHASE / RESERVATION INQUIRY -->
+  <div id="modal-purchase" class="modal-backdrop">
+    <div class="modal-purchase-container glass-panel">
+      <button class="modal-close" id="btn-close-purchase" aria-label="Fermer le formulaire">
+        <i data-lucide="x"></i>
+      </button>
+
+      <div class="purchase-modal-grid">
+        <div class="purchase-summary-col">
+          <span class="section-eyebrow">ACQUISITION D'ŒUVRE ORIGINALE</span>
+          <h3 id="modal-painting-title">Le Guerrier au Crépuscule</h3>
+          <div class="purchase-thumbnail">
+            <img id="modal-painting-thumb" src="/assets/peinture.jpeg" alt="Tableau sélectionné" />
+          </div>
+          <div class="purchase-price-tag" id="modal-painting-price">2 400 €</div>
+          <p class="purchase-notes">
+            Comprend : Certificat d'authenticité original signé, emballage en caisse d'art sécurisée, transport avec assurance ad valorem et numéro de suivi direct.
+          </p>
+        </div>
+
+        <div class="purchase-form-col">
+          <h3>Dossier de Réservation Privée</h3>
+          <p class="form-desc">Complétez vos coordonnées pour recevoir l'offre formelle ou finaliser l'acquisition.</p>
+
+          <form id="purchase-form" class="order-form">
+            <div class="form-group">
+              <label for="client-name">Nom complet ou Collectionneur / Galerie</label>
+              <input type="text" id="client-name" required placeholder="Ex: Alexandre de Montmirail" />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="client-email">Email</label>
+                <input type="email" id="client-email" required placeholder="alexandre@collection.com" />
+              </div>
+              <div class="form-group">
+                <label for="client-phone">Téléphone / WhatsApp</label>
+                <input type="tel" id="client-phone" required placeholder="+33 6 12 34 56 78" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="client-city">Pays & Ville de livraison</label>
+              <input type="text" id="client-city" required placeholder="Ex: Paris, France ou Genève, Suisse" />
+            </div>
+
+            <div class="form-group">
+              <label for="client-message">Message ou demande d'encadrement sur-mesure</label>
+              <textarea id="client-message" rows="3" placeholder="Précisez vos souhaits (encadrement américain, livraison express, etc.)..."></textarea>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn-gold-solid w-full">
+                <i data-lucide="check-circle"></i>
+                <span>Transmettre la Demande d'Acquisition</span>
+              </button>
+            </div>
+            <p class="form-privacy">
+              <i data-lucide="lock"></i>
+              <span>Confidentialité garantie. Votre demande est transmise directement à l'atelier de Mandiaye Diaw.</span>
+            </p>
+          </form>
+
+          <div id="purchase-success" class="purchase-success hidden">
+            <div class="success-icon"><i data-lucide="check"></i></div>
+            <h4>Demande Enregistrée avec Succès</h4>
+            <p>Un dossier officiel d'acquisition ainsi que les détails d'expédition vous ont été adressés. L'atelier prendra contact avec vous dans les plus brefs délais.</p>
+            <button id="btn-close-success" class="btn-dark-glass">Fermer</button>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast" class="toast hidden"></div>
+
+  <!-- Main JavaScript bundle -->
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
