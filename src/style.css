@@ -2006,3 +2006,15 @@ h1, h2, h3, h4, .brand-name, .story-title, .section-title {
   }
 }
 
+
+[hidden] { display: none !important; }
+button:disabled { opacity: .5; cursor: not-allowed; }
+.gallery-card-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.gallery-bottom { flex-wrap: wrap; gap: 14px; }
+.gallery-price { font-size: 1.1rem; }
+.artist-bio-text { white-space: pre-line; }
+.artwork-extra-images { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px; }
+.honeypot { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+#purchase-error { color: #ff9f94; font-size: .85rem; }
+.order-form select { background: #151519; color: #f5f3ef; padding: 12px; border: 1px solid #444; border-radius: 6px; width: 100%; }
+.room-switches { flex-wrap: wrap; max-height: 130px; overflow: auto; }
