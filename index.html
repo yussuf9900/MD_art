@@ -73,7 +73,7 @@
       </h1>
 
       <p class="hero-subtitle">
-        Plongez dans l'univers pictural de Mandiaye Diaw. Quand la puissance des symboles ancestraux rencontre la vibration moderne de la lumière et de l'or.
+        Plongez dans l'univers pictural de Mandiaye Diaw, artiste basé en Italie. Quand la puissance des symboles ancestraux rencontre la vibration moderne de la lumière et de l'or.
       </p>
 
       <div class="hero-cta-group">
@@ -323,87 +323,7 @@
         <div class="gold-divider"></div>
       </div>
 
-      <div class="collection-grid">
-        
-        <!-- Artwork 1 -->
-        <div class="gallery-card">
-          <div class="gallery-img-wrapper">
-            <img src="/assets/peinture.jpeg" alt="Le Guerrier au Crépuscule" />
-            <div class="gallery-status available">Disponible</div>
-            <div class="gallery-overlay">
-              <button class="gallery-quick-view btn-open-room" data-painting="peinture.jpeg">
-                <i data-lucide="eye"></i>
-                <span>Voir en Salon</span>
-              </button>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-meta">
-              <span class="gallery-cat">Série Racines Solaire</span>
-              <span class="gallery-size">80 × 120 cm</span>
-            </div>
-            <h3 class="gallery-title">Le Guerrier au Crépuscule</h3>
-            <p class="gallery-sub">Acrylique, pigments purs et idéogrammes.</p>
-            <div class="gallery-bottom">
-              <div class="gallery-price">2 400 €</div>
-              <button class="btn-gold-sm btn-open-purchase" data-painting-id="1">Acquérir</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Artwork 2 -->
-        <div class="gallery-card">
-          <div class="gallery-img-wrapper">
-            <img src="/assets/peinture2.jpg" alt="Reine d'Or et d'Indigo" />
-            <div class="gallery-status available">Disponible</div>
-            <div class="gallery-overlay">
-              <button class="gallery-quick-view btn-open-room" data-painting="peinture2.jpg">
-                <i data-lucide="eye"></i>
-                <span>Voir en Salon</span>
-              </button>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-meta">
-              <span class="gallery-cat">Série Majesté</span>
-              <span class="gallery-size">75 × 100 cm</span>
-            </div>
-            <h3 class="gallery-title">Reine d'Or et d'Indigo</h3>
-            <p class="gallery-sub">Huile sur lin, parures feuille d'or & cobalt.</p>
-            <div class="gallery-bottom">
-              <div class="gallery-price">2 850 €</div>
-              <button class="btn-gold-sm btn-open-purchase" data-painting-id="2">Acquérir</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Artwork 3 -->
-        <div class="gallery-card">
-          <div class="gallery-img-wrapper">
-            <img src="/assets/peinture3.jpg" alt="La Danseuse du Feu Céleste" />
-            <div class="gallery-status reserved">Réservé</div>
-            <div class="gallery-overlay">
-              <button class="gallery-quick-view btn-open-room" data-painting="peinture3.jpg">
-                <i data-lucide="eye"></i>
-                <span>Voir en Salon</span>
-              </button>
-            </div>
-          </div>
-          <div class="gallery-info">
-            <div class="gallery-meta">
-              <span class="gallery-cat">Série Énergie & Transe</span>
-              <span class="gallery-size">90 × 130 cm</span>
-            </div>
-            <h3 class="gallery-title">La Danseuse du Feu Céleste</h3>
-            <p class="gallery-sub">Empâtement au couteau, flammes d'ambre.</p>
-            <div class="gallery-bottom">
-              <div class="gallery-price">3 100 €</div>
-              <button class="btn-dark-sm btn-open-purchase" data-painting-id="3">Offre d'Acquisition</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
+      <div class="collection-grid"><p class="section-desc">Chargement de la collection…</p></div>
 
     </div>
   </section>
@@ -468,6 +388,7 @@
           <a href="#piece-maitresse">Pièce Maîtresse</a>
           <a href="#collection">Collection</a>
           <a href="#artiste">L'Artiste</a>
+          <a href="/admin">Espace artiste</a>
         </div>
         <div class="footer-contact">
           <h4>Ventes Privées & Contact</h4>
@@ -478,14 +399,14 @@
       <div class="footer-bottom">
         <p>© 2026 Mandiaye Diaw. Tous droits d'auteur réservés. Œuvres certifiées.</p>
         <div class="footer-meta">
-          <span>Paris • Dakar • Collection Internationale</span>
+          <span>Italie • Collection Internationale</span>
         </div>
       </div>
     </div>
   </footer>
 
   <!-- MODAL: VIEW IN ROOM (Mise en Situation dans un salon luxueux) -->
-  <div id="modal-room" class="modal-backdrop">
+  <div id="modal-room" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Vue en salon">
     <div class="modal-room-container">
       <button class="modal-close" id="btn-close-room" aria-label="Fermer la vue en salon">
         <i data-lucide="x"></i>
@@ -517,7 +438,7 @@
   </div>
 
   <!-- MODAL: HIGH RES LOUPE / MACRO ZOOM -->
-  <div id="modal-loupe" class="modal-backdrop">
+  <div id="modal-loupe" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Détails du tableau">
     <div class="modal-loupe-container">
       <button class="modal-close" id="btn-close-loupe" aria-label="Fermer le zoom">
         <i data-lucide="x"></i>
@@ -526,6 +447,7 @@
         <h3>Inspection Macro Haute Définition</h3>
         <p>Glissez votre curseur sur la toile pour inspecter le relief des pigments et les détails de la matière.</p>
       </div>
+      <div class="artwork-extra-images"></div>
       <div id="loupe-stage" class="loupe-stage">
         <img id="loupe-source-img" src="/assets/peinture.jpeg" alt="Inspection HD" class="loupe-main-img" />
         <div id="loupe-lens" class="loupe-lens"></div>
@@ -534,7 +456,7 @@
   </div>
 
   <!-- MODAL: PURCHASE / RESERVATION INQUIRY -->
-  <div id="modal-purchase" class="modal-backdrop">
+  <div id="modal-purchase" class="modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Demande d’acquisition">
     <div class="modal-purchase-container glass-panel">
       <button class="modal-close" id="btn-close-purchase" aria-label="Fermer le formulaire">
         <i data-lucide="x"></i>
@@ -584,6 +506,9 @@
               <textarea id="client-message" rows="3" placeholder="Précisez vos souhaits (encadrement américain, livraison express, etc.)..."></textarea>
             </div>
 
+            <div class="form-group"><label for="client-currency">Devise souhaitée</label><select id="client-currency"><option value="EUR">Euro (EUR)</option><option value="XOF">Franc CFA (XOF)</option></select></div>
+            <div class="honeypot" aria-hidden="true"><label for="client-website">Site web</label><input id="client-website" tabindex="-1" autocomplete="off"></div>
+            <p id="purchase-error" role="alert"></p>
             <div class="form-submit-row">
               <button type="submit" class="btn-gold-solid w-full">
                 <i data-lucide="check-circle"></i>
@@ -599,7 +524,7 @@
           <div id="purchase-success" class="purchase-success hidden">
             <div class="success-icon"><i data-lucide="check"></i></div>
             <h4>Demande Enregistrée avec Succès</h4>
-            <p>Un dossier officiel d'acquisition ainsi que les détails d'expédition vous ont été adressés. L'atelier prendra contact avec vous dans les plus brefs délais.</p>
+            <p>Votre demande a été enregistrée. L’artiste prendra contact avec vous pour convenir de l’acquisition et du règlement.</p>
             <button id="btn-close-success" class="btn-dark-glass">Fermer</button>
           </div>
 
