@@ -2001,6 +2001,37 @@ h1, h2, h3, h4, .brand-name, .story-title, .section-title {
   .modal-purchase-container h3 {
     font-size: 1.3rem;
   }
+  .purchase-summary-col .section-eyebrow {
+    padding-right: 2.5rem;
+  }
+  .purchase-form-col {
+    order: -1;
+  }
+  .purchase-form-col h3 {
+    padding-right: 2.5rem;
+  }
+  .purchase-summary-col {
+    border-bottom: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-top: 1.5rem;
+  }
+  .purchase-thumbnail {
+    height: 90px;
+    aspect-ratio: auto;
+    margin: .75rem 0;
+  }
+  .purchase-thumbnail img {
+    object-fit: contain;
+  }
+  .purchase-notes {
+    font-size: .78rem;
+    line-height: 1.5;
+  }
+  .modal-purchase-container input,
+  .modal-purchase-container textarea,
+  .modal-purchase-container select {
+    font-size: 16px;
+  }
   .purchase-price-tag {
     font-size: 1.5rem;
   }
@@ -2011,6 +2042,10 @@ h1, h2, h3, h4, .brand-name, .story-title, .section-title {
   .form-row {
     grid-template-columns: 1fr;
     gap: 0.8rem;
+  }
+  .modal-purchase-container .form-group input,
+  .modal-purchase-container .form-group textarea {
+    font-size: 16px;
   }
 }
 
