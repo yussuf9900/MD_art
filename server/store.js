@@ -35,9 +35,12 @@ export function namespace() {
   return "development";
 }
 const token = () => {
-  if (!process.env.BLOB_PRIVATE_READ_WRITE_TOKEN)
-    throw new HttpError(503, "Stockage privé Vercel Blob non configuré.");
-  return process.env.BLOB_PRIVATE_READ_WRITE_TOKEN;
+  if (!process.env.BLOB_READ_WRITE_TOKEN)
+    throw new HttpError(
+      503,
+      "Stockage privé Vercel Blob non configuré : BLOB_READ_WRITE_TOKEN manquante.",
+    );
+  return process.env.BLOB_READ_WRITE_TOKEN;
 };
 function file(key) {
   return path.join(
