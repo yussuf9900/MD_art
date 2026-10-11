@@ -33,7 +33,7 @@ Les tests HTTP couvrent authentification, droits, catalogue, images, demandes, v
 
 | Variable serveur | Valeur / rôle |
 | --- | --- |
-| `BLOB_PRIVATE_READ_WRITE_TOKEN` | Token du store **privé** |
+| `BLOB_READ_WRITE_TOKEN` | Token du store **privé**, nom standard Vercel |
 | `BLOB_PUBLIC_READ_WRITE_TOKEN` | Token du store **public** |
 | `ADMIN_USERNAME` | `admin` par défaut, configurable avant l’initialisation |
 | `ADMIN_INITIAL_PASSWORD` | Mot de passe initial, 12–128 caractères |
@@ -43,6 +43,8 @@ Les tests HTTP couvrent authentification, droits, catalogue, images, demandes, v
 | `VERCEL_ANALYTICS_PROJECT_ID` | Identifiant du projet Analytics |
 | `VERCEL_ANALYTICS_TEAM_ID` | Identifiant d’équipe, si le projet appartient à une équipe |
 | `ANALYTICS_CUSTOM_EVENTS` | `0` par défaut ; `1` seulement avec une offre compatible |
+
+La variable standard `BLOB_READ_WRITE_TOKEN` doit provenir du store **privé**. Le store public utilise `BLOB_PUBLIC_READ_WRITE_TOKEN` : ne pas remplacer la valeur du token privé lors de sa connexion au projet.
 
 Générer `SESSION_SECRET` avec :
 
