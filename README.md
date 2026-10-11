@@ -33,7 +33,9 @@ Les tests HTTP couvrent authentification, droits, catalogue, images, demandes, v
 
 | Variable serveur | Valeur / rôle |
 | --- | --- |
-| `BLOB_READ_WRITE_TOKEN` | Token du store **privé**, nom standard Vercel |
+| `BLOB_STORE_ID` | Identifiant du store **privé**, ajouté par la connexion Storage |
+| `BLOB_WEBHOOK_PUBLIC_KEY` | Clé publique ajoutée par Vercel pour les callbacks d’upload ; ne remplace pas l’authentification |
+| `BLOB_READ_WRITE_TOKEN` | Facultatif : token du store **privé** pour les connexions sans OIDC |
 | `BLOB_PUBLIC_READ_WRITE_TOKEN` | Token du store **public** |
 | `ADMIN_USERNAME` | `admin` par défaut, configurable avant l’initialisation |
 | `ADMIN_INITIAL_PASSWORD` | Mot de passe initial, 12–128 caractères |
@@ -44,7 +46,11 @@ Les tests HTTP couvrent authentification, droits, catalogue, images, demandes, v
 | `VERCEL_ANALYTICS_TEAM_ID` | Identifiant d’équipe, si le projet appartient à une équipe |
 | `ANALYTICS_CUSTOM_EVENTS` | `0` par défaut ; `1` seulement avec une offre compatible |
 
-La variable standard `BLOB_READ_WRITE_TOKEN` doit provenir du store **privé**. Le store public utilise `BLOB_PUBLIC_READ_WRITE_TOKEN` : ne pas remplacer la valeur du token privé lors de sa connexion au projet.
+Le stockage privé utilise automatiquement l’identité OIDC du déploiement avec `BLOB_STORE_ID`. Vercel fournit et renouvelle `VERCEL_OIDC_TOKEN` à l’exécution : aucune valeur à saisir manuellement. Le SDK privilégie OIDC, puis utilise `BLOB_READ_WRITE_TOKEN` en secours si OIDC est absent. Ce token de secours doit provenir du store **privé**.
+
+Le téléversement des images utilise actuellement un token du store **public**, à définir dans `BLOB_PUBLIC_READ_WRITE_TOKEN`. La connexion OIDC du store privé ne configure pas cette médiathèque. Vérifier que `BLOB_STORE_ID` désigne toujours le store privé après avoir connecté le store public.
+
+Après toute modification de variables, redéployer le projet. Définir aussi `ADMIN_USERNAME`, `ADMIN_INITIAL_PASSWORD` et `SESSION_SECRET` en Preview si l’administration doit fonctionner sur les prévisualisations ; conserver des secrets distincts de Production.
 
 Générer `SESSION_SECRET` avec :
 

@@ -34,13 +34,18 @@ export function namespace() {
   }
   return "development";
 }
-const token = () => {
-  if (!process.env.BLOB_READ_WRITE_TOKEN)
+const requireBlobConnection = () => {
+  if (
+    !process.env.BLOB_READ_WRITE_TOKEN &&
+    !(
+      process.env.BLOB_STORE_ID &&
+      (process.env.VERCEL || process.env.VERCEL_OIDC_TOKEN)
+    )
+  )
     throw new HttpError(
       503,
-      "Stockage privé Vercel Blob non configuré : BLOB_READ_WRITE_TOKEN manquante.",
+      "Stockage privé Vercel Blob non configuré : connectez un store privé au projet Vercel (BLOB_STORE_ID) ou définissez BLOB_READ_WRITE_TOKEN.",
     );
-  return process.env.BLOB_READ_WRITE_TOKEN;
 };
 function file(key) {
   return path.join(
@@ -59,9 +64,9 @@ export async function read(key) {
       throw e;
     }
   }
+  requireBlobConnection();
   const result = await get(`mdart/${namespace()}/${key}.json`, {
     access: "private",
-    token: token(),
     useCache: false,
   });
   if (!result) return null;
@@ -102,10 +107,10 @@ export async function write(key, data, revision) {
       await unlink(`${target}.lock`);
     }
   }
+  requireBlobConnection();
   try {
     const result = await put(`mdart/${namespace()}/${key}.json`, raw, {
       access: "private",
-      token: token(),
       contentType: "application/json",
       addRandomSuffix: false,
       allowOverwrite: !!revision,
