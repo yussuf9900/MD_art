@@ -247,6 +247,10 @@ h1, h2, h3, h4, .brand-name, .story-title, .section-title {
 }
 
 .btn-gold-sm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   background: var(--color-gold);
   color: #000;
   font-weight: 600;
@@ -1400,6 +1404,9 @@ h1, h2, h3, h4, .brand-name, .story-title, .section-title {
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;
+  max-height: calc(100dvh - 4rem);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 .loupe-header h3 {
   font-size: 1.6rem;
@@ -1444,6 +1451,7 @@ h1, h2, h3, h4, .brand-name, .story-title, .section-title {
   max-width: 960px;
   max-height: 90vh;
   overflow-y: auto;
+  overscroll-behavior: contain;
   border-radius: 20px;
   padding: 3rem;
 }
@@ -1988,7 +1996,7 @@ h1, h2, h3, h4, .brand-name, .story-title, .section-title {
   .modal-purchase-container {
     padding: 1.5rem 1.2rem;
     border-radius: 14px;
-    max-height: 92vh;
+    max-height: calc(100dvh - 4rem);
   }
   .modal-purchase-container h3 {
     font-size: 1.3rem;

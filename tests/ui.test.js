@@ -86,12 +86,32 @@ test("public DOM renders catalogue, euros/FCFA, featured work, Italy and validat
   assert.ok(
     document.querySelector('.btn-open-purchase[data-painting-id="3"]').disabled,
   );
+  const acquire = document.querySelector('.gallery-card .btn-open-purchase[data-painting-id="1"]');
+  assert.equal(acquire.tagName, "A");
+  const url = new URL(acquire.href);
+  assert.equal(url.pathname, "/391234567890");
+  const message = url.searchParams.get("text");
+  assert.ok(message.includes("Le Guerrier au Crépuscule"));
+  assert.ok(message.includes("FCFA") || message.includes("F CFA"));
+  assert.ok(message.includes("http://localhost:5173/assets/peinture.jpeg"));
+  const hero = new URL(document.querySelector("#btn-hero-order").href);
+  assert.ok(hero.searchParams.get("text").includes("Reine d’Or et d’Indigo"));
   assert.equal(document.querySelectorAll(".room-thumb-btn").length, 3);
   assert.ok(
     !document
       .querySelector(".purchase-success p")
       .textContent.includes("adressés"),
   );
+});
+test("existing catalogues without WhatsApp use the Italian gallery number", async () => {
+  galleryWindow.close();
+  galleryWindow = dom(await readFile(new URL("../index.html", import.meta.url), "utf8"));
+  const data = seed();
+  data.settings.whatsapp = "";
+  globalThis.fetch = async () => Response.json(publicCatalog(data));
+  await loadCatalog();
+  assert.equal(new URL(document.querySelector('.gallery-card .btn-open-purchase').href).pathname, "/393299189539");
+  assert.equal(document.querySelector('.btn-whatsapp').hidden, false);
 });
 test("empty or failed catalogue never offers a stale artwork for purchase", async () => {
   galleryWindow.close();

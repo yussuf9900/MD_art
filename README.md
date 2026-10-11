@@ -78,7 +78,8 @@ L’admin initial est créé au premier login. Modifier `ADMIN_INITIAL_PASSWORD`
 - Une demande acceptée peut devenir une vente unique. Paiement et livraison sont suivis manuellement ; le statut du tableau reste un choix explicite de l’artiste.
 - Les conflits de révision retournent HTTP 409. Recharger les données avant de reprendre la modification. Les lectures privées utilisent `useCache: false` et les écritures `ifMatch`.
 - Les sessions expirent après huit heures ; déconnexion et changement de mot de passe révoquent les sessions côté serveur. L’authentification limite huit tentatives par quinze minutes et adresse réseau. Les requêtes d’écriture exigent une origine identique au site.
-- Aucun email automatique n’est envoyé. Les confirmations publiques annoncent uniquement l’enregistrement de la demande. WhatsApp est affiché après configuration du numéro international.
+- « Acquérir » ouvre WhatsApp au +39 329 918 9539 avec un message prérempli contenant le titre, les dimensions, les prix affichés et le lien public de l’image sélectionnée. Le client confirme lui-même l’envoi dans WhatsApp. Le numéro reste modifiable dans les contenus de l’admin ; une ancienne configuration vide utilise ce numéro par défaut.
+- Le passage vers WhatsApp ne crée pas de demande dans l’admin et ne réserve pas l’œuvre. Aucun email automatique n’est envoyé.
 - Le film animé de l’atelier reste la séquence originale du Guerrier ; il est indépendant de l’œuvre mise en avant dans la fiche dynamique.
 
 ## Statistiques
@@ -99,7 +100,7 @@ Le JSON partagé est adapté à une petite galerie. Chaque modification réécri
 
 - Vérifier `/admin`, la connexion, le changement obligatoire du mot de passe et le refus des API sans session.
 - Ajouter un tableau avec une image, modifier ses prix, publier, puis vérifier la vitrine dans un autre navigateur.
-- Envoyer une demande publique, vérifier sa présence dans l’admin, l’accepter et suivre une vente.
+- Vérifier le destinataire et le message de chaque lien « Acquérir » sans envoyer de message de test à l’artiste. Vérifier les demandes existantes et le suivi manuel des ventes dans l’admin.
 - Exporter/restaurer une sauvegarde de prévisualisation et vérifier un conflit entre deux onglets d’édition.
 - Redéployer et vérifier que tableaux, demandes et mot de passe persistent.
 - Vérifier la connexion Analytics et les périodes réellement disponibles.

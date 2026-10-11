@@ -478,20 +478,13 @@ function setupEventListeners() {
     btnSoundToggle.addEventListener("click", toggleAmbientAudio);
   }
 
-  // Hero CTA to open purchase
-  const btnHeroOrder = document.getElementById("btn-hero-order");
-  if (btnHeroOrder) {
-    btnHeroOrder.addEventListener("click", () => openPurchaseModal(featuredId));
-  }
-
   document.addEventListener("click", (e) => {
-    const purchase = e.target.closest(".btn-open-purchase");
+    const purchase = e.target.closest(".btn-open-purchase,#btn-hero-order");
     const room = e.target.closest(".btn-open-room");
     const zoom = e.target.closest(".btn-open-loupe");
     const thumb = e.target.closest(".room-thumb-btn");
     if (purchase) {
-      e.preventDefault();
-      openPurchaseModal(purchase.dataset.paintingId);
+      trackEvent("whatsapp_click", purchase.dataset.paintingId);
     }
     if (room) {
       e.preventDefault();
