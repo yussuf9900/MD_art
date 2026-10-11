@@ -49,7 +49,7 @@ export function seed() {
       artistName: "Mandiaye Diaw",
       location: "Italie",
       email: "",
-      whatsapp: "",
+      whatsapp: "+393299189539",
       instagram: "",
       facebook: "",
       biography:

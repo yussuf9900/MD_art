@@ -17,6 +17,18 @@ const money = (amount, currency = "EUR") =>
       }).format(amount);
 const labels = { available: "Disponible", reserved: "Réservé", sold: "Vendu" };
 let eventsEnabled = false;
+const defaultWhatsApp = "+393299189539";
+export function acquisitionUrl(artwork, settings, origin) {
+  const phone = (settings.whatsapp || defaultWhatsApp).replace(/\D/g, "");
+  const message = [
+    `Bonjour ${settings.artistName}, je souhaite acquérir l’œuvre « ${artwork.title} ».`,
+    `Dimensions : ${artwork.dimensions}`,
+    `Prix : ${artwork.price}`,
+    `Image : ${new URL(artwork.img, origin).href}`,
+    "Pouvez-vous me confirmer sa disponibilité et les modalités de livraison ?",
+  ].join("\n");
+  return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
 export function event(name, artworkId) {
   if (eventsEnabled)
     try {
@@ -35,6 +47,7 @@ export async function loadCatalog() {
   eventsEnabled = data.customEventsEnabled;
   if (import.meta.env?.PROD) inject();
   const { settings: s } = data;
+  const whatsappSettings = { ...s, whatsapp: s.whatsapp || defaultWhatsApp };
   const artworks = data.artworks.map((a) => {
     const media = a.imageIds
       .map((id) => data.media.find((m) => m.id === id))
@@ -98,9 +111,9 @@ export async function loadCatalog() {
   document.querySelector(".purchase-success p").textContent =
     "Votre demande a été enregistrée. L’artiste prendra contact avec vous pour convenir de l’acquisition et du règlement.";
   const whatsapp = document.querySelector(".btn-whatsapp");
-  whatsapp.hidden = !s.whatsapp || !featured;
-  if (s.whatsapp && featured) {
-    whatsapp.href = `https://wa.me/${s.whatsapp.replace("+", "")}?text=${encodeURIComponent(`Bonjour ${s.artistName}, je souhaite des renseignements sur l’œuvre ${featured.title}.`)}`;
+  whatsapp.hidden = !featured;
+  if (featured) {
+    whatsapp.href = acquisitionUrl(featured, whatsappSettings, window.location.origin);
     whatsapp.addEventListener("click", () =>
       event("whatsapp_click", featured.id),
     );
@@ -159,6 +172,19 @@ export async function loadCatalog() {
         `<button class="room-thumb-btn" data-id="${esc(a.id)}" data-img="${esc(a.img)}">${esc(a.title)}</button>`,
     )
     .join("");
+  document.querySelectorAll(".btn-open-purchase,#btn-hero-order").forEach((button) => {
+    const art = artworks.find((a) => a.id === button.dataset.paintingId);
+    if (!art || art.status !== "available") return;
+    const link = document.createElement("a");
+    for (const attribute of button.attributes) {
+      if (!["type", "disabled"].includes(attribute.name))
+        link.setAttribute(attribute.name, attribute.value);
+    }
+    link.innerHTML = button.innerHTML;
+    link.href = acquisitionUrl(art, whatsappSettings, window.location.origin);
+    link.setAttribute("aria-label", `Acquérir ${art.title} via WhatsApp`);
+    button.replaceWith(link);
+  });
   return { artworks, featuredId: featured?.id };
 }
 export function unavailableCatalog() {
