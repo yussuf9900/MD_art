@@ -88,6 +88,8 @@ test("public DOM renders catalogue, euros/FCFA, featured work, Italy and validat
   );
   const acquire = document.querySelector('.gallery-card .btn-open-purchase[data-painting-id="1"]');
   assert.equal(acquire.tagName, "A");
+  assert.equal(document.querySelector('.gallery-card .btn-open-reservation').dataset.paintingId, "1");
+  assert.equal(document.querySelectorAll('.gallery-card .btn-open-reservation').length, 2);
   const url = new URL(acquire.href);
   assert.equal(url.pathname, "/391234567890");
   const message = url.searchParams.get("text");

@@ -184,6 +184,15 @@ export async function loadCatalog() {
     link.href = acquisitionUrl(art, whatsappSettings, window.location.origin);
     link.setAttribute("aria-label", `Acquérir ${art.title} via WhatsApp`);
     button.replaceWith(link);
+    if (link.closest(".gallery-card,#piece-maitresse")) {
+      const reserve = document.createElement("button");
+      reserve.type = "button";
+      reserve.className = "btn-dark-sm btn-open-reservation";
+      reserve.dataset.paintingId = art.id;
+      reserve.textContent = "Réserver";
+      reserve.setAttribute("aria-label", `Réserver ${art.title}`);
+      link.after(reserve);
+    }
   });
   return { artworks, featuredId: featured?.id };
 }
@@ -192,7 +201,7 @@ export function unavailableCatalog() {
     '<p class="section-desc" role="alert">Le catalogue est momentanément indisponible. Veuillez réessayer plus tard.</p>';
   document.querySelector("#piece-maitresse").hidden = true;
   document
-    .querySelectorAll(".btn-open-purchase,#btn-hero-order,.btn-whatsapp")
+    .querySelectorAll(".btn-open-purchase,.btn-open-reservation,#btn-hero-order,.btn-whatsapp")
     .forEach((b) => {
       b.hidden = true;
     });

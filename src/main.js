@@ -355,11 +355,13 @@ function openPurchaseModal(paintingId = featuredId) {
   if (modalPaintingTitle) modalPaintingTitle.innerText = art.title;
   if (modalPaintingThumb) modalPaintingThumb.src = art.img;
   if (modalPaintingPrice) modalPaintingPrice.innerText = art.price;
+  modalPurchase.querySelector(".purchase-form-col h3").textContent = `Réserver « ${art.title} »`;
 
   if (purchaseForm) purchaseForm.style.display = "flex";
   if (purchaseSuccess) purchaseSuccess.classList.add("hidden");
 
   modalPurchase.classList.add("open");
+  modalPurchase.querySelector(".modal-purchase-container").scrollTop = 0;
   enterModal(modalPurchase);
   lenis.stop();
 }
@@ -480,11 +482,16 @@ function setupEventListeners() {
 
   document.addEventListener("click", (e) => {
     const purchase = e.target.closest(".btn-open-purchase,#btn-hero-order");
+    const reservation = e.target.closest(".btn-open-reservation");
     const room = e.target.closest(".btn-open-room");
     const zoom = e.target.closest(".btn-open-loupe");
     const thumb = e.target.closest(".room-thumb-btn");
     if (purchase) {
       trackEvent("whatsapp_click", purchase.dataset.paintingId);
+    }
+    if (reservation) {
+      e.preventDefault();
+      openPurchaseModal(reservation.dataset.paintingId);
     }
     if (room) {
       e.preventDefault();

@@ -79,6 +79,7 @@ L’admin initial est créé au premier login. Modifier `ADMIN_INITIAL_PASSWORD`
 - Les conflits de révision retournent HTTP 409. Recharger les données avant de reprendre la modification. Les lectures privées utilisent `useCache: false` et les écritures `ifMatch`.
 - Les sessions expirent après huit heures ; déconnexion et changement de mot de passe révoquent les sessions côté serveur. L’authentification limite huit tentatives par quinze minutes et adresse réseau. Les requêtes d’écriture exigent une origine identique au site.
 - « Acquérir » ouvre WhatsApp au +39 329 918 9539 avec un message prérempli contenant le titre, les dimensions, les prix affichés et le lien public de l’image sélectionnée. Le client confirme lui-même l’envoi dans WhatsApp. Le numéro reste modifiable dans les contenus de l’admin ; une ancienne configuration vide utilise ce numéro par défaut.
+- « Réserver », sur les œuvres disponibles, ouvre le formulaire du site et enregistre la demande dans l’admin après sauvegarde réussie. Sur mobile, l’image est compacte et le formulaire défile indépendamment de la page.
 - Le passage vers WhatsApp ne crée pas de demande dans l’admin et ne réserve pas l’œuvre. Aucun email automatique n’est envoyé.
 - Le film animé de l’atelier reste la séquence originale du Guerrier ; il est indépendant de l’œuvre mise en avant dans la fiche dynamique.
 
